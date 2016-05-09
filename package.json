@@ -1,0 +1,29 @@
+{
+  "name": "di-server",
+  "version": "1.0.0",
+  "description": "A server that returns dynamic images",
+  "main": "deploy/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lmarquez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "html2png": "^1.1.2",
+    "node-render": "^1.1.1",
+    "node-webkit-screenshot": "^0.3.2",
+    "phantomjs": "^2.1.7",
+    "tsd": "^0.6.5",
+    "twitter": "^1.2.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^2.13.0",
+    "tsify": "^0.13.2",
+    "typescript": "1.6.2"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  }
+}

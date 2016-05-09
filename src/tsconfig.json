@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "../dist",
+    "preserveConstEnums": true,
+    "removeComments": true
+  },
+  "atom": {
+    "rewriteTsconfig": false
+  },
+  "filesGlob": [
+    "**/*.ts"
+  ]
+}
