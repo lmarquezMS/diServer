@@ -12,15 +12,14 @@
   "dependencies": {
     "ejs": "^2.4.2",
     "express": "^4.13.4",
+    "gulp": "^3.9.1",
     "html2png": "^1.1.2",
     "node-render": "^1.1.1",
     "node-webkit-screenshot": "^0.3.2",
     "phantomjs": "^2.1.7",
     "tsd": "^0.6.5",
     "twitter": "^1.2.5",
-    "webshot": "^0.18.0"
-  },
-  "devDependencies": {
+    "webshot": "^0.18.0",
     "gulp": "^3.9.1",
     "gulp-typescript": "^2.13.0",
     "tsify": "^0.13.2",
