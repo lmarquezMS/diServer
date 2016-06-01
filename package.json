@@ -4,7 +4,7 @@
   "description": "A server that returns dynamic images",
   "main": "deploy/server.js",
   "scripts": {
-    "start": "gulp compile-ts",
+    "start": "gulp compile-ts && node dist/server.js",
     "postinstall": "tsd install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,18 +13,19 @@
   "dependencies": {
     "ejs": "^2.4.2",
     "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-typescript": "^2.13.0",
+    "gulp-watch": "^4.3.5",
     "html2png": "^1.1.2",
     "node-render": "^1.1.1",
     "node-webkit-screenshot": "^0.3.2",
     "phantomjs": "^2.1.7",
-    "twitter": "^1.2.5",
-    "webshot": "^0.18.0",
-    "gulp": "^3.9.1",
-    "gulp-typescript": "^2.13.0",
-    "gulp-watch": "^4.3.5",
     "tsd": "^0.6.5",
     "tsify": "^0.13.2",
-    "typescript": "1.6.2"
+    "twitter": "^1.2.5",
+    "typescript": "1.6.2",
+    "webshot": "^0.18.0"
   },
   "engines": {
     "node": ">=0.12.7",
