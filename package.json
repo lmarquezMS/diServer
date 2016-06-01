@@ -23,9 +23,7 @@
     "gulp": "^3.9.1",
     "gulp-typescript": "^2.13.0",
     "tsify": "^0.13.2",
-    "typescript": "1.6.2"
-  },
-  "devDependencies": {
+    "typescript": "1.6.2",
     "gulp-watch": "^4.3.5"
   },
   "engines": {
