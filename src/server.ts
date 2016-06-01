@@ -5,7 +5,6 @@
 import * as http from "http";
 import * as fs from "fs";
 import express = require("express");
-import nRender = require("node-render");
 import {client} from "./config/twitter";
 import webshot = require ("webshot");
 
