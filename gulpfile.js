@@ -16,7 +16,7 @@ gulp.task("server", function(){
   node = createServer();
 })
 
-gulp.task("compile-ts", function(){
+gulp.task("compile", function(){
   exec("tsc --project src/");
 })
 
