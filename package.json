@@ -4,7 +4,7 @@
   "description": "A server that returns dynamic images",
   "main": "deploy/server.js",
   "scripts": {
-    "start": "gulp compile-ts && node dist/server.js",
+    "start": "npm install && gulp compile-ts && node dist/server.js",
     "postinstall": "tsd install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
