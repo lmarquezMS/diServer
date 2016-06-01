@@ -1,6 +1,9 @@
 declare module "webshot"{
-  export class Webshot{
-    constructor(url: string, image: string, callback: any);
-    constructor(url: string, config: any);
-  }
+  var webshot: Webshot;
+  export = webshot;
+}
+
+interface Webshot{
+  (url: string, image: string, callback: any): Webshot;
+  (url: string, config: any): Webshot;
 }
