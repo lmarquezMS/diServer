@@ -4,7 +4,7 @@
   "description": "A server that returns dynamic images",
   "main": "deploy/server.js",
   "scripts": {
-    "start": "gulp dev && node dist/server.js",
+    "start": "gulp compile-ts && node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "lmarquez",

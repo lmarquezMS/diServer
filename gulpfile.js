@@ -28,3 +28,5 @@ gulp.task("watch", function(){
 });
 
 gulp.task("dev", ["compile-ts", "server", "watch"]);
+
+gulp.task("build", ["compile-ts", "server"]);

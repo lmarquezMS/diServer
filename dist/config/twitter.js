@@ -1,3 +1,4 @@
+/// <reference path="../custom_types/twitter.d.ts" />
 var Twitter = require("twitter");
 exports.client = new Twitter({
     consumer_key: "TuOGaPrjJyP6rMXy0NEWeX7An",
