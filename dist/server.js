@@ -26,7 +26,7 @@ function generateImage() {
     });
 }
 function feedTweets(callback) {
-    var tweets = twitter_1.client.get("search/tweets", { q: "#BuenMiercoles" }, function (error, tweets, response) {
+    var tweets = twitter_1.client.get("search/tweets", { q: "#BuenJueves" }, function (error, tweets, response) {
         if (error)
             throw error;
         var tweetsArray = [];

@@ -39,7 +39,7 @@ function generateImage(){
 }
 
 function feedTweets(callback){
-  var tweets = client.get("search/tweets", {q: "#BuenMiercoles"}, function(error, tweets, response){
+  var tweets = client.get("search/tweets", {q: "#BuenJueves"}, function(error, tweets, response){
     if (error) throw error;
     var tweetsArray = [];
     for (let i = 0; i < 5; i++) {
