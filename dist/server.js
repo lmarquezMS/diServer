@@ -19,7 +19,7 @@ function sendFile(req, res) {
 }
 app.get("/img", sendFile);
 function generateImage() {
-    var renderStream = webshot("http://localhost:3000", { screenSize: { width: 560, height: 700 }, shotSize: { width: 650, height: "all" } });
+    var renderStream = webshot("https://diserver.herokuapp.com", { screenSize: { width: 560, height: 700 }, shotSize: { width: 650, height: "all" } });
     var file = fs.createWriteStream(__dirname + "/img/tweets.cache.png", { encoding: "binary" });
     renderStream.on('data', function (data) {
         file.write(data.toString("binary"), "binary");
@@ -36,5 +36,5 @@ function feedTweets(callback) {
         callback(tweetsArray);
     });
 }
-setInterval(generateImage, 30000);
+setInterval(generateImage, 3000);
 app.listen(process.env.PORT || 3000);
