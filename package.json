@@ -2,7 +2,7 @@
   "name": "di-server",
   "version": "1.0.0",
   "description": "A server that returns dynamic images",
-  "main": "deploy/server.js",
+  "main": "dist/server.js",
   "scripts": {
     "start": "gulp compile && node dist/server.js",
     "postinstall": "tsd install",
