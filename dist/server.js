@@ -1,6 +1,4 @@
-/// <reference path="../typings/tsd.d.ts" />
-/// <reference path="./custom_types/twitter.d.ts" />
-/// <reference path="./custom_types/webshot.d.ts" />
+"use strict";
 var fs = require("fs");
 var express = require("express");
 var twitter_1 = require("./config/twitter");
@@ -39,4 +37,4 @@ function feedTweets(callback) {
     });
 }
 setInterval(generateImage, 30000);
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
