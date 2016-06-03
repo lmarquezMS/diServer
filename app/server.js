@@ -1,4 +1,3 @@
-"use strict";
 var fs = require("fs");
 var express = require("express");
 var twitter_1 = require("../config/twitter");
@@ -20,11 +19,11 @@ function sendFile(req, res) {
 }
 app.get("/img", sendFile);
 function generateImage() {
-    fs.createReadStream(__dirname + "/../public/assets/img/tweets.png").pipe(fs.createWriteStream(__dirname + "/../public/assets/img/tweets.cache.png"));
-    var renderStream = webshot(config.URL, { screenSize: { width: 560, height: 700 }, shotSize: { width: 650, height: "all" } });
-    var file = fs.createWriteStream(__dirname + "/../public/assets/img/tweets.png", { encoding: "binary" });
-    renderStream.on('data', function (data) {
-        file.write(data.toString("binary"), "binary");
+    console.log(config.URL);
+    var result = webshot(config.URL, __dirname + "/../public/assets/img/tweets.png", function (err) {
+        if (err)
+            throw err;
+        fs.createReadStream(__dirname + "/../public/assets/img/tweets.png", "binary").pipe(fs.createWriteStream(__dirname + "/../public/assets/img/tweets.cache.png", 'binary'));
     });
 }
 function feedTweets(callback) {
@@ -40,5 +39,5 @@ function feedTweets(callback) {
         }
     });
 }
-setInterval(generateImage, 60000);
+setInterval(generateImage, 30000);
 app.listen(process.env.PORT || 3000);

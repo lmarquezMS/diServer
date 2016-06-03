@@ -4,6 +4,7 @@ declare module "webshot"{
 }
 
 interface Webshot{
+  (url: string): Webshot; 
   (url: string, image: string, callback: any): Webshot;
-  (url: string, config: any): Webshot;
+  (url: string, config: any, callback: any): Webshot;
 }
