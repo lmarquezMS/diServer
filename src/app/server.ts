@@ -51,5 +51,5 @@ function feedTweets(callback){
   });
 }
 
-setInterval(generateImage, 30000);
+setInterval(generateImage, config.TWITTER_LOOP);
 app.listen(process.env.PORT || 3000);
