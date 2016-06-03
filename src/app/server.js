@@ -1,4 +1,6 @@
-"use strict";
+/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../custom_types/twitter.d.ts" />
+/// <reference path="../custom_types/webshot.d.ts" />
 var fs = require("fs");
 var express = require("express");
 var twitter_1 = require("../config/twitter");

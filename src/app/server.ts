@@ -7,6 +7,7 @@ import * as fs from "fs";
 import express = require("express");
 import {client} from "../config/twitter";
 import webshot = require ("webshot");
+import * as config from "../config/config";
 
 var app = express();
 app.set("view engine", "ejs");
@@ -29,7 +30,7 @@ app.get("/img", sendFile);
 
 function generateImage(){
   fs.createReadStream(__dirname + "/../public/assets/img/tweets.png").pipe(fs.createWriteStream(__dirname + "/../public/assets/img/tweets.cache.png"));
-  var renderStream:any = webshot("https://diserver.herokuapp.com", {screenSize: {width: 560, height: 700}, shotSize: {width: 650, height: "all"}});
+  var renderStream:any = webshot(config.URL, {screenSize: {width: 560, height: 700}, shotSize: {width: 650, height: "all"}});
   var file = fs.createWriteStream(__dirname + "/../public/assets/img/tweets.png", {encoding: "binary"});
   renderStream.on('data', function(data){
     file.write(data.toString("binary"), "binary");
