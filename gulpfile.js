@@ -8,7 +8,7 @@ var gulp = require("gulp"),
   node;
 
 function createServer() {
-  return spawn('node', ['./dist/server.js'], {stdio: "inherit", cwd: process.cwd() });
+  return spawn('node', ['./app/server.js'], {stdio: "inherit", cwd: process.cwd() });
 }
 
 gulp.task("server", function(){
@@ -21,12 +21,11 @@ gulp.task("compile", function(){
 })
 
 gulp.task("watch", function(){
-  gulp.watch("./src/**/*.ts", ["compile-ts", "server"]);
-
+  gulp.watch("./src/**/*.ts", ["compile", "server"]);
   livereload.listen();
   gulp.watch("deploy/**").on("change", livereload.changed);
 });
 
-gulp.task("dev", ["compile-ts", "server", "watch"]);
+gulp.task("dev", ["compile", "server", "watch"]);
 
-gulp.task("build", ["compile-ts", "server"]);
+gulp.task("build", ["compile"]);

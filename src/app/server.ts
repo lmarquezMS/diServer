@@ -1,38 +1,36 @@
-/// <reference path="../typings/tsd.d.ts" />
-/// <reference path="./custom_types/twitter.d.ts" />
-/// <reference path="./custom_types/webshot.d.ts" />
+/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../custom_types/twitter.d.ts" />
+/// <reference path="../custom_types/webshot.d.ts" />
 
 import * as http from "http";
 import * as fs from "fs";
 import express = require("express");
-import {client} from "./config/twitter";
+import {client} from "../config/twitter";
 import webshot = require ("webshot");
 
-
-var output = "./dist/img/image.png";
 var app = express();
 app.set("view engine", "ejs");
-app.set("views", __dirname + "/view");
+app.set("views", __dirname + "/../public/views");
+app.use("/static", express.static(__dirname + "/../public"));
 
 app.get("/", function(req, res){
-  // res.render('index2', {user: "gran usuario", title: "homepage"});
   feedTweets(function(tweets) {
     res.render("index", {
       tweets: tweets
     });
-    // res.sendFile(__dirname + "/view/twittFeeds.html");
   });
 });
 
 
 function sendFile(req, res) {
-  res.sendFile(__dirname + "/img/tweets.cache.png");
+  res.sendFile(__dirname + "/../public/assets/img/tweets.cache.png");
 }
 app.get("/img", sendFile);
 
 function generateImage(){
+  fs.createReadStream(__dirname + "/../public/assets/img/tweets.png").pipe(fs.createWriteStream(__dirname + "/../public/assets/img/tweets.cache.png"));
   var renderStream:any = webshot("https://diserver.herokuapp.com", {screenSize: {width: 560, height: 700}, shotSize: {width: 650, height: "all"}});
-  var file = fs.createWriteStream(__dirname + "/img/tweets.cache.png", {encoding: "binary"});
+  var file = fs.createWriteStream(__dirname + "/../public/assets/img/tweets.png", {encoding: "binary"});
   renderStream.on('data', function(data){
     file.write(data.toString("binary"), "binary");
   });
@@ -41,13 +39,14 @@ function generateImage(){
 function feedTweets(callback){
   var tweets = client.get("search/tweets", {q: "#BuenJueves"}, function(error, tweets, response){
     if (error) throw error;
+    else {
     var tweetsArray = [];
     for (let i = 0; i < 5; i++) {
       tweetsArray[i] = tweets.statuses[i];
     }
-    callback(tweetsArray);
+    callback(tweetsArray);}
   });
 }
 
-setInterval(generateImage, 3000);
+setInterval(generateImage, 60000);
 app.listen(process.env.PORT || 3000);
